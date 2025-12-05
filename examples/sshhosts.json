@@ -1,0 +1,8 @@
+[
+    {
+		"Host":     "127.0.0.1",
+		"Port":     2223,
+		"Username": "admin",
+		"Password": "123456"
+	}
+]

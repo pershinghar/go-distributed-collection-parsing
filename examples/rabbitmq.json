@@ -1,0 +1,13 @@
+{
+	"url": "amqp://rabbit:hero123@localhost:5672/",
+	"exchange": "ssh-output",
+	"exchange_type": "fanout",
+	"routing_key": "",
+	"durable": true,
+	"auto_delete": false,
+	"queue_name": "raw-data-queue",
+	"queue_durable": true,
+	"queue_auto_delete": false,
+	"queue_exclusive": false
+}
+
