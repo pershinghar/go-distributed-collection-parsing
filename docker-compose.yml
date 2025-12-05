@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  # 1. RabbitMQ Broker
+  rabbitmq:
+    image: rabbitmq:4
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbit
+      RABBITMQ_DEFAULT_PASS: hero123
+
+  # 2. Collector Service
+  collector:
+    build:
+      context: .
+      dockerfile: Dockerfile.collector # You might have one Dockerfile per component
+    depends_on:
+      - rabbitmq
+
+
+  # 3. Parser Service
+  parser:
+    build:
+      context: .
+      dockerfile: Dockerfile.parser
+    # Parser must wait for RabbitMQ to be ready before starting
+    depends_on:
+      - rabbitmq
